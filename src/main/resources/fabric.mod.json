@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "hardcore_darkness",
+  "version": "${version}",
+  "name": "Hardcore Darkness",
+  "description": "Moon phases and pitch black caves for a more immersive and dangerous experience. Easily configurable.",
+  "authors": [
+    "cintreck"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/hardcore-darkness",
+    "sources": "https://github.com/cintreck/hardcore-darkness"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/hardcore_darkness/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.codex.hardcoredarkness.HardcoreDarknessModInitializer"
+    ],
+    "client": [
+      "com.codex.hardcoredarkness.client.HardcoreDarknessClientInitializer"
+    ],
+    "modmenu": [
+      "com.codex.hardcoredarkness.client.config.HardcoreDarknessModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "hardcore_darkness.client.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "1.21.8",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "cloth-config2": "*",
+    "modmenu": "*"
+  }
+}

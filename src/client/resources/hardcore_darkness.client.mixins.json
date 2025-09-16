@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.codex.hardcoredarkness.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "HardcoreDarknessGameRendererMixin",
+    "HardcoreDarknessLightmapTextureMixin",
+    "HardcoreDarknessNetherEffectsMixin",
+    "HardcoreDarknessEndEffectsMixin",
+    "HardcoreDarknessLightmapTextureAllocationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
