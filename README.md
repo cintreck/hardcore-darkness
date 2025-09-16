@@ -8,11 +8,12 @@ Hardcore Darkness recreates the pitch-black nights and fog tuning of the classic
 - Configurable darkness per dimension plus optional moon phase handling (`config/hardcore_darkness.toml`).
 - Adjustable Nether and End fog multipliers to keep those dimensions oppressive.
 - Optional server-side requirement handshake when you want parity across a multiplayer world.
+- Supports [Distant Horizons](https://modrinth.com/mod/distanthorizons)!
 
 ## Install
 - Requires [Fabric](https://fabricmc.net/) and [Fabric API](https://modrinth.com/mod/fabric-api).
-- Drop the built jar into `mods/` on the client. Servers only need the jar if you flip `require_server_mod` to `true`.
-- Optional UI integrations (Mod Menu, Cloth Config) are still supported for future tweaks.
+- Optional UI: add [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) to tweak settings in-game.
+- Place the built jar in `mods/` on the client. Servers only need the jar if you flip `require_server_mod` to `true`.
 
 ## Build
 - Java 21 with Gradle + Fabric Loom.
