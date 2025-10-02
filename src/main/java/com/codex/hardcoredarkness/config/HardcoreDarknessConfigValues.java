@@ -10,8 +10,7 @@ public record HardcoreDarknessConfigValues(
         double endFogFactor,
         boolean blockLightOnly,
         boolean ignoreMoonPhase,
-        HardcoreDarknessMoonPhaseStyle moonPhaseStyle,
-        boolean requireMod) {
+        HardcoreDarknessMoonPhaseStyle moonPhaseStyle) {
 
     public HardcoreDarknessConfigValues {
         netherFogFactor = clampFog(netherFogFactor);

@@ -8,11 +8,6 @@ public final class HardcoreDarknessModInitializer implements ModInitializer {
     public void onInitialize() {
         HardcoreDarknessConfigService.reload();
         HardcoreDarknessState.replaceWithoutSaving(HardcoreDarknessConfigService.current());
-        HardcoreDarknessConstants.LOGGER.info("Hardcore Darkness config loaded: requireMod={}", HardcoreDarknessState.config().requireMod());
-
-        if (HardcoreDarknessState.config().requireMod()) {
-            HardcoreDarknessHandshake.registerServer();
-            HardcoreDarknessConstants.LOGGER.info("Server handshake enabled");
-        }
+        HardcoreDarknessConstants.LOGGER.info("Hardcore Darkness config loaded");
     }
 }

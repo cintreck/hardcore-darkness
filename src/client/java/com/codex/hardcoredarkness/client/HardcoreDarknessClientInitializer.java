@@ -9,6 +9,5 @@ public final class HardcoreDarknessClientInitializer implements ClientModInitial
     public void onInitializeClient() {
         HardcoreDarknessConfigService.reload();
         HardcoreDarknessState.replaceWithoutSaving(HardcoreDarknessConfigService.current());
-        HardcoreDarknessClientHandshake.register();
     }
 }

@@ -54,7 +54,6 @@ public final class HardcoreDarknessConfigLoader {
         boolean blockLightOnly = readBoolean(config, "block_light_only", defaults.blockLightOnly());
         boolean ignoreMoonPhase = readBoolean(config, "ignore_moon_phase", defaults.ignoreMoonPhase());
         HardcoreDarknessConfigValues.HardcoreDarknessMoonPhaseStyle moonPhaseStyle = readMoonPhase(config, defaults.moonPhaseStyle());
-        boolean requireMod = readBoolean(config, "require_server_mod", defaults.requireMod());
 
         return new HardcoreDarknessConfigValues(
                 darkOverworld,
@@ -66,8 +65,7 @@ public final class HardcoreDarknessConfigLoader {
                 endFogFactor,
                 blockLightOnly,
                 ignoreMoonPhase,
-                moonPhaseStyle,
-                requireMod
+                moonPhaseStyle
         );
     }
 
@@ -130,7 +128,6 @@ public final class HardcoreDarknessConfigLoader {
     private static CommentedFileConfig openFile(Path path) {
         return CommentedFileConfig.builder(path)
                 .preserveInsertionOrder()
-                .autosave()
                 .writingMode(WritingMode.REPLACE)
                 .build();
     }
@@ -168,9 +165,6 @@ public final class HardcoreDarknessConfigLoader {
 
         file.set("moon_phase_style", values.moonPhaseStyle().name());
         file.setComment("moon_phase_style", "DEFAULT, GRADUAL, or BTW blending curves");
-
-        file.set("require_server_mod", values.requireMod());
-        file.setComment("require_server_mod", "If true, disconnect when connecting to servers without the mod");
 
         file.save();
     }

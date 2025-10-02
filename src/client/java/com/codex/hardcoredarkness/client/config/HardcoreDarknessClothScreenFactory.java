@@ -1,7 +1,6 @@
 package com.codex.hardcoredarkness.client.config;
 
 import com.codex.hardcoredarkness.HardcoreDarknessConstants;
-import com.codex.hardcoredarkness.HardcoreDarknessHandshake;
 import com.codex.hardcoredarkness.HardcoreDarknessState;
 import com.codex.hardcoredarkness.config.HardcoreDarknessConfigService;
 import com.codex.hardcoredarkness.config.HardcoreDarknessConfigValues;
@@ -30,7 +29,6 @@ public final class HardcoreDarknessClothScreenFactory {
         AtomicBoolean darkSkyless = new AtomicBoolean(current.darkSkyless());
         AtomicBoolean blockLightOnly = new AtomicBoolean(current.blockLightOnly());
         AtomicBoolean ignoreMoonPhase = new AtomicBoolean(current.ignoreMoonPhase());
-        AtomicBoolean requireMod = new AtomicBoolean(current.requireMod());
         AtomicReference<Double> netherFog = new AtomicReference<>(current.netherFogFactor());
         AtomicReference<Double> endFog = new AtomicReference<>(current.endFogFactor());
         AtomicReference<HardcoreDarknessConfigValues.HardcoreDarknessMoonPhaseStyle> moonPhaseStyle =
@@ -51,14 +49,10 @@ public final class HardcoreDarknessClothScreenFactory {
                     MathHelper.clamp(endFog.get(), 0.0D, 1.0D),
                     blockLightOnly.get(),
                     ignoreMoonPhase.get(),
-                    moonPhaseStyle.get(),
-                    requireMod.get()
+                    moonPhaseStyle.get()
             );
 
             HardcoreDarknessState.apply(updated);
-            if (updated.requireMod()) {
-                HardcoreDarknessHandshake.registerServer();
-            }
             HardcoreDarknessConstants.LOGGER.info("Hardcore Darkness settings saved");
         });
 
@@ -123,13 +117,6 @@ public final class HardcoreDarknessClothScreenFactory {
                 .setMax(1.0D)
                 .setTooltip(Text.translatable("tooltip.hardcore_darkness.end_fog_factor"))
                 .setSaveConsumer(value -> endFog.set(MathHelper.clamp(value, 0.0D, 1.0D)))
-                .build());
-
-        ConfigCategory networking = builder.getOrCreateCategory(Text.translatable("category.hardcore_darkness.multiplayer"));
-        networking.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.hardcore_darkness.require_mod"), requireMod.get())
-                .setDefaultValue(defaults.requireMod())
-                .setTooltip(Text.translatable("tooltip.hardcore_darkness.require_mod"))
-                .setSaveConsumer(requireMod::set)
                 .build());
 
         return builder.build();

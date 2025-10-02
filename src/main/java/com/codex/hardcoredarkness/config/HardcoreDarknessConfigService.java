@@ -11,8 +11,7 @@ public final class HardcoreDarknessConfigService {
             0.0D,
             false,
             false,
-            HardcoreDarknessConfigValues.HardcoreDarknessMoonPhaseStyle.DEFAULT,
-            false
+            HardcoreDarknessConfigValues.HardcoreDarknessMoonPhaseStyle.DEFAULT
     );
 
     private static volatile HardcoreDarknessConfigValues current = HardcoreDarknessConfigLoader.loadOrCreate(DEFAULTS);
