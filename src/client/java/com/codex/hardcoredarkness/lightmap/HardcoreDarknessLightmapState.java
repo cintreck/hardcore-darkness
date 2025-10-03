@@ -188,6 +188,12 @@ public final class HardcoreDarknessLightmapState {
             return 1.0F;
         }
 
+        // In 1.21.9+, the End has skylight (for sky flashes), but should still be dark
+        RegistryKey<World> key = world.getRegistryKey();
+        if (World.END.equals(key)) {
+            return 0.0F;
+        }
+
         DimensionType dimension = world.getDimension();
         if (!dimension.hasSkyLight()) {
             return 0.0F;
